@@ -5,9 +5,14 @@ const route = require('./src/routes/route')
 const dotenv = require('dotenv')
 dotenv.config()
 const {PORT, DB_CONNECTION} =process.env
+var bodyParser = require('body-parser');
+const multer= require("multer");
 
 
 app.use(express.json())
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use( multer().any())
 
 mongoose.set('strictQuery', true)
 mongoose.connect(DB_CONNECTION,{

@@ -1,38 +1,41 @@
 const mongoose = require('mongoose');
 
 const bookSchema = new mongoose.Schema({
+    bookCover:{
+        type:String
+    },
     title: {
         type: String,
-        required: true,
+        required: false,
         unique: true,
         lowercase:true,
         trim:true
     },
     excerpt: {
         type: String,
-        required: true,
+        required: false,
         lowercase:true,
         trim:true
     },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true,
+        required: false,
     },
     ISBN: {
         type: String,
-        required: true,
+        required: false,
         unique: true,
     },
     category: {
         type: String,
-        required: true,
+        required: false,
         lowercase:true,
         trim:true
     },
     subcategory: {
         type: String,
-        required: true,
+        required: false,
         lowercase:true,
         trim:true
     },
@@ -47,7 +50,7 @@ const bookSchema = new mongoose.Schema({
     },
     releasedAt: {
         type: Date,
-        required: true,
+        required: false,
         format: 'YYYY-MM-DD',
     }
 }, { timestamps: true });
